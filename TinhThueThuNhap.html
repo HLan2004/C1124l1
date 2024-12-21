@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tinh Thue</title>
+</head>
+<body>
+<form>
+    <label for="tax">Tax: </label>
+    <input type="text" id="tax">
+    <br><br>
+    <label for="dependants">Dependants:</label>
+    <input type="text" id="dependants">
+    <br><br>
+    <button id="tinhtoan">Tinh toan</button>
+</form>
+<script>
+    let b = document.getElementById("tinhtoan");
+    b.addEventListener("click", tinh);
+    function tinh(){
+        let t = parseInt(document.getElementById("tax").value);
+        let d = parseInt(document.getElementById("dependants").value);
+        if (t > 11000000){
+            let c;
+            if (d > 0){
+                d *= 4000000;
+                c = (t - 11000000 - d) * 0.05;
+                if (c < 0){
+                    alert("Khong co thue thu nhap");
+                }else {
+                    alert(c);
+                }
+
+            }else {
+                c = (t - 11000000) * 0.05;
+                alert(c);
+            }
+        }else {
+            alert("Khong co thue thu nhap");
+        }
+    }
+</script>
+</body>
+</html>
